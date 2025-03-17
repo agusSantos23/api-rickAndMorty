@@ -1,19 +1,40 @@
-<div>
-  @if (infoPages.prev) {
-    <button>⬅️</button>
-  }
+@if (infoPages) {
+  <div>
+    @if (numPageNow > 2) {
+      <button (click)="changePage(urlPaginate + (numPageNow - 2), '--')">⬅️⬅️</button>
+    }
+    @if (infoPages.prev) {
+      <button (click)="changePage(infoPages.prev, '-')">⬅️</button>
+    }
+    @if (numPageNow > 2) {
+      <button (click)="changePage(urlPaginate + (numPageNow - 2), '--')">{{ numPageNow - 2 }}</button>
+    }
+    @if (numPageNow > 1) {
+      <button (click)="changePage(urlPaginate + (numPageNow - 1), '-')">{{ numPageNow - 1 }}</button>
+    }
+    <button class="active">{{ numPageNow }}</button>
 
-  <button>1</button>
-  <button>2</button>
-  <button>3</button>
+    @if (numPageNow < infoPages.pages) {
+      <button (click)="changePage(urlPaginate + (numPageNow + 1), '+')">{{ numPageNow + 1 }}</button>
+    }
 
-  @if (infoPages.pages - 3 > infoPages.nowNumber) {
-    <button>...</button>
-  }
+    @if (numPageNow + 1 < infoPages.pages) {
+      <button (click)="changePage(urlPaginate + (numPageNow + 2), '++')">{{ numPageNow + 2 }}</button>
+    }
+  
+    @if (infoPages.pages - 2 > numPageNow) {
+      <button>...</button>
+    }
+  
+    @if (infoPages.next) {
+      <button (click)="changePage(infoPages.next, '+')">➡️</button>
+    }
 
-  @if (infoPages.next) {
-    <button>➡️</button>
-  }
+    @if (numPageNow + 1 < infoPages.pages) {
+      <button (click)="changePage(urlPaginate + (numPageNow + 2), '++')">➡️➡️</button>
+    }
+  
+  
+  </div>
+}
 
-
-</div>

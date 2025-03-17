@@ -5,6 +5,7 @@ interface Characcter {
   id: number,
   name: string,
   status: string,
+  species: string,
   gender: string,
   image: string,
   url: string,
@@ -24,9 +25,7 @@ interface Characcter {
 export class CharacterComponent implements OnInit {
   @Input() characterData!: Characcter
 
-  constructor() { 
-
-  }
+  constructor() {}
 
   ngOnInit() {
   }
