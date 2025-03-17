@@ -1,0 +1,18 @@
+<h1>Characters 🚀</h1>
+
+<main class="container">
+
+  @for (character of charactersData; track character.id) {
+  <app-character [characterData]="character" />
+  }
+
+</main>
+
+@if (infoPages) {
+  <app-link-page [typeData]="'character'" [infoPages]="infoPages" />
+}
+
+
+<footer>
+  © AgusInNytelweb
+</footer>

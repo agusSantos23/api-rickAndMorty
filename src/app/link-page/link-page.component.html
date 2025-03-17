@@ -1,0 +1,19 @@
+<div>
+  @if (infoPages.prev) {
+    <button>⬅️</button>
+  }
+
+  <button>1</button>
+  <button>2</button>
+  <button>3</button>
+
+  @if (infoPages.pages - 3 > infoPages.nowNumber) {
+    <button>...</button>
+  }
+
+  @if (infoPages.next) {
+    <button>➡️</button>
+  }
+
+
+</div>
