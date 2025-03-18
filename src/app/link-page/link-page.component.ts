@@ -41,11 +41,11 @@ export class LinkPageComponent  implements OnInit {
     
     this.apiService.refreshData(url, operation);
 
-    this.apiService.getInfoPages().subscribe(data => {
+    this.apiService.infoPages$.subscribe(data => {
       this.infoPages = data;
     });
 
-    this.apiService.getNumPage().subscribe(data => {
+    this.apiService.numPageNow$.subscribe(data => {
       this.numPageNow = data;
     })
 

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/angular/standalone';
 
@@ -20,9 +21,10 @@ interface Characcter {
   standalone: true,
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.scss'],
-  imports: [IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle],
+  imports: [IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, CommonModule],
 })
 export class CharacterComponent implements OnInit {
+  protected imageLoaded: boolean = false
   @Input() characterData!: Characcter
 
   constructor() {}

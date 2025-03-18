@@ -10,3 +10,17 @@ span{
   top: 0;
   z-index: 5;
 }
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn .4s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

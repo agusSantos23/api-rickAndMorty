@@ -24,7 +24,7 @@ export class CharactersPage implements OnInit {
   ngOnInit() {
     this.apiService.refreshData();
 
-    this.apiService.getCharacters().subscribe(data => {
+    this.apiService.charactersData$.subscribe(data => {
       this.charactersData = data;
     });
   }

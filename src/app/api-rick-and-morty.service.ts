@@ -1,19 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { Location } from '@angular/common';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiRickAndMortyService {
-  private location = inject(Location);
 
   private apiUrl:string = 'https://rickandmortyapi.com/api/character'; 
 
-  private charactersData$ = new BehaviorSubject<any[]>([]);
-  private infoPages$ = new BehaviorSubject<any>(null);
-  private numPageNow$ = new BehaviorSubject<number>(1);
+  charactersData$ = new BehaviorSubject<any[]>([]);
+  infoPages$ = new BehaviorSubject<any>(null);
+  numPageNow$ = new BehaviorSubject<number>(1);
 
   constructor(private http: HttpClient) {}
 
@@ -64,22 +62,5 @@ export class ApiRickAndMortyService {
     ).subscribe();
   }
 
-  getCharacters(): Observable<any[]> {
-    return this.charactersData$.asObservable();
-  }
-
-  getInfoPages(): Observable<any> {
-    return this.infoPages$.asObservable();
-  }
-
-  getNumPage(): Observable<number> {
-    return this.numPageNow$.asObservable();
-  }
-  
-
-  private extractPageNumber(url: string): number {
-    const pageMatch = url.match(/[?&]page=(\d+)/);
-    return pageMatch ? parseInt(pageMatch[1], 10) : 1;
-  }
-
+ 
 }
